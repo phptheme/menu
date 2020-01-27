@@ -1,0 +1,13 @@
+{
+    "name": "phptheme/menu",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "PhpTheme\\Menu\\" : ""
+        }
+    },
+    "require": {
+        "phptheme/html-helper": "*",
+        "phptheme/html-link": "*"
+    }
+}
