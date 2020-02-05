@@ -14,7 +14,7 @@ class MenuItem extends \PhpTheme\Tag\Tag
 
     const LINK = Link::class;
 
-    const SUBMENU = Menu::class;
+    const MENU = Menu::class;
 
     public $active; //is active
 
@@ -109,7 +109,7 @@ class MenuItem extends \PhpTheme\Tag\Tag
     {
         $options = HtmlHelper::mergeOptions($this->submenuOptions, $options);
 
-        $class = static::SUBMENU;
+        $class = static::MENU;
 
         return new $class($options);
     }
