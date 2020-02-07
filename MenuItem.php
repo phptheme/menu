@@ -9,12 +9,12 @@ namespace PhpTheme\Menu;
 use PhpTheme\Link\Link;
 use PhpTheme\HtmlHelper\HtmlHelper;
 
-class MenuItem extends \PhpTheme\Tag\Tag
+class MenuItem extends \PhpTheme\Widget\Widget
 {
 
-    const LINK = Link::class;
-
     const MENU = Menu::class;
+
+    const LINK = Link::class;
 
     public $active; //is active
 

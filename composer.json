@@ -9,6 +9,6 @@
     "require": {
         "phptheme/html-helper": "*",
         "phptheme/link": "*",
-        "phptheme/tag": "*"
+        "phptheme/widget": "*"
     }
 }

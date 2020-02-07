@@ -8,7 +8,7 @@ namespace PhpTheme\Menu;
 
 use PhpTheme\HtmlHelper\HtmlHelper;
 
-class Menu extends \PhpTheme\Tag\Tag
+class Menu extends \PhpTheme\Widget\Widget
 {
 
     const MENU_ITEM = MenuItem::class;
