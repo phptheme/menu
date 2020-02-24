@@ -44,13 +44,15 @@ class MenuItem extends \PhpTheme\Widget\Widget
 
     public $activeLinkTag;
 
-    // submenu
+    public $escapeLinkLabel = true;
 
-    public $submenuOptions = [];
+    // menu
+
+    public $menuOptions = [];
 
     public $items = [];
 
-    protected $_submenu;
+    protected $_menu;
 
     protected $_link;
 
@@ -71,7 +73,8 @@ class MenuItem extends \PhpTheme\Widget\Widget
         $linkOptions = [
             'url' => $this->url,
             'label' => $this->label,
-            'tag' => $this->linkTag
+            'tag' => $this->linkTag,
+            'escapeLabel' => $this->escapeLinkLabel
         ];
 
         if ($this->icon)
@@ -105,28 +108,28 @@ class MenuItem extends \PhpTheme\Widget\Widget
         return new $class($linkOptions);
     }
 
-    protected function createSubmenu(array $options = [])
+    protected function createMenu(array $options = [])
     {
-        $options = HtmlHelper::mergeOptions($this->submenuOptions, $options);
+        $options = HtmlHelper::mergeOptions($this->menuOptions, $options);
 
         $class = static::MENU;
 
         return new $class($options);
     }
 
-    public function getSubmenu()
+    public function getMenu()
     {
-        if ($this->_submenu !== null)
+        if ($this->_menu !== null)
         {
-            return $this->_submenu;
+            return $this->_menu;
         }
 
         if ($this->items)
         {
-            $this->_submenu = $this->createSubmenu(['items' => $this->items]);
+            $this->_menu = $this->createMenu(['items' => $this->items]);
         }
 
-        return $this->_submenu;
+        return $this->_menu;
     }
 
     public function getContent()
@@ -135,11 +138,11 @@ class MenuItem extends \PhpTheme\Widget\Widget
 
         $content .= $this->getLink()->toString();
 
-        $submenu = $this->getSubmenu();
+        $menu = $this->getMenu();
 
-        if ($submenu)
+        if ($menu)
         {
-            $content .= $submenu->toString();
+            $content .= $menu->toString();
         }
 
         return $content;
